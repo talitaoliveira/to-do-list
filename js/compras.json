@@ -1,0 +1,26 @@
+[
+  {
+    "userId": 1,
+    "id": 1,
+    "title": "cenoura",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 2,
+    "title": "tomate",
+    "completed": true
+  },
+  {
+    "userId": 1,
+    "id": 3,
+    "title": "sabonete",
+    "completed": true
+  },
+  {
+    "userId": 1,
+    "id": 4,
+    "title": "copos",
+    "completed": true
+  }
+]

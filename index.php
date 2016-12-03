@@ -34,6 +34,12 @@
 				<div class="form-group">
 					<button class="btn btn-default btn-block" id="adicionar">+ Adicionar</button>
 				</div>
+				<div class="form-group">
+					<select class="form-control" name="tipolista" id="tipolista">
+						<option value="1">Lista de compras</option>
+						<option value="2">Lista de a fazer</option>
+					</select>
+				</div>
 			</form>
 		</div>
 	</section>
@@ -41,8 +47,6 @@
 	<section id="itens" class="container">
 		<h2 class="text-center">Itens adicionados</h2>
 		<ul id="lista">
-			<li>Teste</li>
-			<li>Teste2</li>
 		</ul>
 	</section>
 </body>
