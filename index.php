@@ -43,9 +43,20 @@
 			</form>
 		</div>
 	</section>
-<hr>
+	<hr>
 	<section id="itens" class="container">
 		<h2 class="text-center">Itens adicionados</h2>
+		<div id="carregamento">
+			<!-- <img src="http://www.ppimusic.ie/images/loading_anim.gif" alt="" width="50" style="display: none" id="loading"> -->
+			<small id="carrega"></small>
+			<div class="wavy-loader" id="loading">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
 		<ul id="lista">
 		</ul>
 	</section>

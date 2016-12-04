@@ -9,8 +9,11 @@ window.onload = function(){
 	var item = document.querySelector('#item');
 	var lista = document.querySelector('#lista');
 	var itemlista = document.querySelector("#lista li");
+	var carrega = document.querySelector("#carrega");
 
 	var tipolista = document.querySelector("#tipolista");
+
+	var loading = document.querySelector("#loading");
 
 	btAdd.addEventListener("click", function(e){
 		e.preventDefault();
@@ -35,7 +38,8 @@ window.onload = function(){
 	});
 
 
-	function carrega(){
+	/*function carrega(){
+		console.log("carregando");
 		resposta = JSON.parse(this.responseText);
 		for (var item in resposta) {
 			var li = document.createElement("li");
@@ -48,13 +52,46 @@ window.onload = function(){
 			}
 
 		}
-	}
-
+	}*/
 	chamaxml("http://localhost/to-do-list/js/compras.json");
-	
+
 	function chamaxml(url){
+		carrega.innerHTML = "0%";
 		var xhr = new XMLHttpRequest();
-		xhr.onload = carrega;
+		//xhr.onload = carrega;
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 1){
+				console.log("começou");
+				loading.style.display = 'block';
+			}
+			if(xhr.readyState == 2){
+				setTimeout(function(){carrega.innerHTML = "45%";},1000);
+				loading.style.display = 'block';
+			}
+			if(xhr.readyState == 3){
+				setTimeout(function(){carrega.innerHTML = "98%";},3000);
+				loading.style.display = 'block';
+			}
+			if(xhr.readyState == 4 && xhr.status == 200){
+				setTimeout(function(){
+					carrega.innerHTML = "100%";
+					loading.style.display = 'none';
+					carrega.innerHTML = "";
+					resposta = JSON.parse(xhr.responseText);
+					for (var item in resposta) {
+						var li = document.createElement("li");
+						lista.appendChild(li);
+						var textnode = document.createTextNode(resposta[item].title); 
+						li.appendChild(textnode);
+
+						if(resposta[item].completed == true){
+							li.classList.toggle('marcado');
+						}
+
+					}
+				}, 5000);
+			}
+		};
 		xhr.open('GET',url,true);
 		xhr.send();
 	}
